@@ -1,0 +1,9 @@
+{
+  "name": "nightshield-vpn",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File ./start-preview.ps1",
+    "android": "echo Add Capacitor or Cordova when you are ready for a native Android wrapper."
+  }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07090f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="NightShield" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>NightShield VPN</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="status-panel" aria-label="VPN connection status">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dark Mode VPN</p>
+            <h1>NightShield</h1>
+          </div>
+          <button class="icon-button" id="settingsButton" aria-label="Settings">
+            <span class="sliders-icon" aria-hidden="true"></span>
+          </button>
+        </header>
+
+        <div class="connection-orb" id="connectionOrb" aria-hidden="true">
+          <div class="orb-ring"></div>
+          <div class="orb-core"></div>
+        </div>
+
+        <p class="connection-state" id="connectionState">Disconnected</p>
+        <p class="connection-detail" id="connectionDetail">Your traffic is not protected.</p>
+
+        <button class="connect-button" id="connectButton" type="button">
+          <span id="connectIcon" aria-hidden="true"></span>
+          <span id="connectText">Connect</span>
+        </button>
+      </section>
+
+      <section class="control-panel" aria-label="VPN controls">
+        <div class="server-card">
+          <div>
+            <p class="label">Selected Location</p>
+            <h2 id="serverName">Singapore</h2>
+            <p class="muted" id="serverMeta">Fastest server &bull; 24 ms</p>
+          </div>
+          <select id="serverSelect" aria-label="Choose VPN server">
+            <option value="Singapore|Fastest server|24">Singapore</option>
+            <option value="Mumbai|Streaming optimized|31">Mumbai</option>
+            <option value="Tokyo|Low latency|42">Tokyo</option>
+            <option value="London|Private browsing|118">London</option>
+            <option value="New York|Work mode|206">New York</option>
+          </select>
+        </div>
+
+        <div class="stats-grid">
+          <article>
+            <span class="label">Download</span>
+            <strong id="downloadStat">0.0 Mbps</strong>
+          </article>
+          <article>
+            <span class="label">Upload</span>
+            <strong id="uploadStat">0.0 Mbps</strong>
+          </article>
+          <article>
+            <span class="label">Protected</span>
+            <strong id="timerStat">00:00</strong>
+          </article>
+          <article>
+            <span class="label">IP Address</span>
+            <strong id="ipStat">Hidden</strong>
+          </article>
+        </div>
+
+        <div class="settings-list" id="settingsList">
+          <label class="setting-row">
+            <span>
+              <strong>Kill Switch</strong>
+              <small>Block internet if VPN drops</small>
+            </span>
+            <input type="checkbox" checked />
+          </label>
+          <label class="setting-row">
+            <span>
+              <strong>Auto Connect</strong>
+              <small>Secure Wi-Fi automatically</small>
+            </span>
+            <input type="checkbox" />
+          </label>
+          <label class="setting-row">
+            <span>
+              <strong>Threat Shield</strong>
+              <small>Filter risky domains</small>
+            </span>
+            <input type="checkbox" checked />
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
