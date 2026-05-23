@@ -13,6 +13,8 @@ const ipStat = document.querySelector("#ipStat");
 const settingsButton = document.querySelector("#settingsButton");
 const settingsList = document.querySelector("#settingsList");
 const statusChip = document.querySelector("#statusChip");
+const signalStat = document.querySelector("#signalStat");
+const locationCards = document.querySelectorAll(".location-card");
 
 let connected = false;
 let connectedSeconds = 0;
@@ -44,6 +46,7 @@ function resetStats() {
   uploadStat.textContent = "0.0 Mbps";
   timerStat.textContent = "00:00";
   ipStat.textContent = "Hidden";
+  signalStat.textContent = "0%";
 }
 
 function updateStats() {
@@ -51,6 +54,7 @@ function updateStats() {
   downloadStat.textContent = randomSpeed(72, 184);
   uploadStat.textContent = randomSpeed(18, 64);
   timerStat.textContent = formatTime(connectedSeconds);
+  signalStat.textContent = `${Math.floor(Math.random() * 8) + 92}%`;
 }
 
 function setConnection(nextState) {
@@ -80,6 +84,15 @@ connectButton.addEventListener("click", () => {
 });
 
 serverSelect.addEventListener("change", setServerDetails);
+
+locationCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    locationCards.forEach((item) => item.classList.remove("active"));
+    card.classList.add("active");
+    serverSelect.value = card.dataset.server;
+    setServerDetails();
+  });
+});
 
 settingsButton.addEventListener("click", () => {
   settingsList.scrollIntoView({ behavior: "smooth", block: "nearest" });

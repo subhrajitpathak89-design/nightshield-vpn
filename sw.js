@@ -1,4 +1,4 @@
-const CACHE_NAME = "nightshield-v1";
+const CACHE_NAME = "nightshield-v2";
 const APP_ASSETS = [
   "./",
   "./index.html",
