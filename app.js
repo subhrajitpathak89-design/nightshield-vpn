@@ -12,6 +12,7 @@ const timerStat = document.querySelector("#timerStat");
 const ipStat = document.querySelector("#ipStat");
 const settingsButton = document.querySelector("#settingsButton");
 const settingsList = document.querySelector("#settingsList");
+const statusChip = document.querySelector("#statusChip");
 
 let connected = false;
 let connectedSeconds = 0;
@@ -59,6 +60,7 @@ function setConnection(nextState) {
   connectButton.classList.toggle("disconnect", connected);
   connectText.textContent = connected ? "Disconnect" : "Connect";
   connectionState.textContent = connected ? "Connected" : "Disconnected";
+  statusChip.textContent = connected ? "Protected" : "Idle";
 
   if (connected) {
     const city = serverSelect.value.split("|")[0];

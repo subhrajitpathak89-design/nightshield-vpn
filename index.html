@@ -11,6 +11,7 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icons/icon.svg" />
+    <link rel="stylesheet" href="design-system/open-props-nightshield.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -21,6 +22,7 @@
             <p class="eyebrow">Dark Mode VPN</p>
             <h1>NightShield</h1>
           </div>
+          <span class="status-chip" id="statusChip">Idle</span>
           <button class="icon-button" id="settingsButton" aria-label="Settings">
             <span class="sliders-icon" aria-hidden="true"></span>
           </button>
@@ -29,6 +31,7 @@
         <div class="connection-orb" id="connectionOrb" aria-hidden="true">
           <div class="orb-ring"></div>
           <div class="orb-core"></div>
+          <div class="shield-mark">NS</div>
         </div>
 
         <p class="connection-state" id="connectionState">Disconnected</p>
@@ -41,6 +44,12 @@
       </section>
 
       <section class="control-panel" aria-label="VPN controls">
+        <nav class="tabbar" aria-label="VPN sections">
+          <button class="tab active" type="button">Home</button>
+          <button class="tab" type="button">Servers</button>
+          <button class="tab" type="button">Activity</button>
+        </nav>
+
         <div class="server-card">
           <div>
             <p class="label">Selected Location</p>

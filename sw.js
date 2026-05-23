@@ -2,6 +2,7 @@ const CACHE_NAME = "nightshield-v1";
 const APP_ASSETS = [
   "./",
   "./index.html",
+  "./design-system/open-props-nightshield.css",
   "./styles.css",
   "./app.js",
   "./manifest.json",
